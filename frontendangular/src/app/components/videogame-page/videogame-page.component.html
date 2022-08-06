@@ -1,0 +1,93 @@
+<div ngClass="pageStyle" *ngIf="videogame != null">
+  <div ngClass="divCoverStyle">
+    <img ngClass="detailsCoverStyle" src="{{ videogame.cover }}" alt="cover" />
+  </div>
+  <div ngClass="divDetailsStyle">
+    <div>
+      <div ngClass="labelDetailsStyle">Title</div>
+      <span ngClass="spanDetailsStyle">{{ videogame.title }}</span>
+    </div>
+    <div>
+      <div ngClass="labelDetailsStyle">Year</div>
+      <span ngClass="spanDetailsStyle">{{ videogame.year }}</span>
+    </div>
+    <div>
+      <div ngClass="labelDetailsStyle">Genre</div>
+      <span ngClass="spanDetailsStyle">{{ videogame.genre }}</span>
+    </div>
+    <div>
+      <div ngClass="labelDetailsStyle">Software House</div>
+      <span ngClass="spanDetailsStyle">{{ videogame.softwareHouse }}</span>
+    </div>
+    <div>
+      <div ngClass="labelDetailsStyle">Publisher</div>
+      <span ngClass="spanDetailsStyle">{{ videogame.publisher }}</span>
+    </div>
+    <div ngClass="labelDetailsStyle">Synopsis</div>
+    <div>
+      <textarea
+        disabled="true"
+        ngClass="textareaDetailsStyle"
+        [ngModel]="videogame.synopsis"
+      ></textarea>
+    </div>
+  </div>
+  <div ngClass="trailerDiv">
+    <iframe
+      ngClass="trailerStyle"
+      title="trailerFrame"
+      src="{{ videogame.trailer }}"
+    ></iframe>
+  </div>
+  <div ngClass="detailsPageButtons">
+    <div ngClass="authButtons" *ngIf="isAuthenticated == true">
+      <button
+        *ngIf="isInWishlist(videogame)"
+        ngClass="invisibleButtonDetails"
+        (click)="onRemoveVideogameFromWishlist()"
+      >
+        <span ngClass="material-icons" title="Remove from wishlist">
+          remove_shopping_cart
+        </span>
+      </button>
+    </div>
+    <div *ngIf="!isInWishlist(videogame)">
+      <button
+        ngClass="invisibleButtonDetails"
+        (click)="onAddVideogameToWishlist()"
+      >
+        <span ngClass="material-icons" title="Add in Wishlist">
+          add_shopping_cart
+        </span>
+      </button>
+      <button
+        *ngIf="isInOwned(videogame)"
+        ngClass="invisibleButtonDetails"
+        (click)="onRemoveVideogameFromOwned()"
+      >
+        <span ngClass="material-icons" title="Remove from owned"> cancel </span>
+      </button>
+      <button
+        *ngIf="!isInOwned(videogame)"
+        ngClass="invisibleButtonDetails"
+        (click)="onAddVideogameToOwned()"
+      >
+        <span ngClass="material-icons" title="Add to owned">
+          check_circle
+        </span>
+      </button>
+    </div>
+    <div *ngIf="user?.admin" ngClass="adminButtons">
+      <a ngClass="linkStyle" [routerLink]="['/edit/', id]">
+        <span ngClass="material-icons" title="Edit"> edit </span>
+      </a>
+      <a ngClass="linkStyle" routerLink="" (click)="submitForm()">
+        <span ngClass="material-icons" title="Delete"> delete </span>
+      </a>
+    </div>
+    <div ngClass="similarGamesDiv">
+      <span ngClass="filterLabel">You could also like:</span>
+      <app-videogames-list [data]="similarGames"></app-videogames-list>
+    </div>
+  </div>
+</div>

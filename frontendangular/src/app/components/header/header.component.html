@@ -1,0 +1,28 @@
+<div ngClass="headerStyle">
+  <a routerLink="/" routerLinkActive="active" ngClass="titleStyle">
+    <span>JUSTPLAY</span>
+  </a>
+  <form>
+    <input
+      type="text"
+      placeholder="Search..."
+      name="search"
+      [(ngModel)]="criteria"
+    />
+  </form>
+  <div *ngIf="!loading">
+    <app-auth-logout-button
+      *ngIf="(auth.isAuthenticated$ | async) === true"
+    ></app-auth-logout-button>
+    <app-auth-login-button
+      *ngIf="(auth.isAuthenticated$ | async) === false"
+    ></app-auth-login-button>
+    <a
+      routerLink="/profile"
+      ngClass="linkStyle"
+      *ngIf="(auth.isAuthenticated$ | async) === true"
+    >
+      <span ngClass="material-icons" title="Profile"> account_circle </span>
+    </a>
+  </div>
+</div>
