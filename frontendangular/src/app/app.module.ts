@@ -9,7 +9,6 @@ import { EditVideogamePageComponent } from './components/edit-videogame-page/edi
 import { HeaderComponent } from './components/header/header.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
-import { PageTitleComponent } from './components/page-title/page-title.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import { SignInPageComponent } from './components/sign-in-page/sign-in-page.component';
@@ -21,7 +20,6 @@ import { AuthLoginButtonComponent } from './components/auth-login-button/auth-lo
 import { AuthLogoutButtonComponent } from './components/auth-logout-button/auth-logout-button.component';
 import { StoreModule } from '@ngrx/store';
 import { videogamesReducer } from './ngrx/videogames.reducer';
-import { authReducer } from './ngrx/auth.reducer';
 import { userReducer } from './ngrx/user.reducer';
 import { UserDataService } from './services/user-data.service';
 import { VideogamesDataService } from './services/videogame-data.service';
@@ -37,7 +35,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HeaderComponent,
     HomePageComponent,
     NotFoundPageComponent,
-    PageTitleComponent,
     ProfilePageComponent,
     SearchPageComponent,
     SignInPageComponent,
@@ -56,13 +53,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
       ...env.auth,
       httpInterceptor: {
         allowedList: [
-          `${env.dev.serverUrl}/videogames/*`,
+          `${env.dev.serverUrl}/videogames/add*`,
+          `${env.dev.serverUrl}/videogames/edit/*`,
+          `${env.dev.serverUrl}/videogames/delete/*`,
           `${env.dev.serverUrl}/users*`,
         ],
       },
     }),
     StoreModule.forRoot(
-      { videogames: videogamesReducer, auth: authReducer, user: userReducer },
+      { videogames: videogamesReducer, user: userReducer },
       {}
     ),
     AppRoutesModule,

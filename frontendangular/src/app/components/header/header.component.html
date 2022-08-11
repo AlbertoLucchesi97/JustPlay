@@ -1,13 +1,14 @@
-<div ngClass="headerStyle">
+<div ngClass="headerStyle" *ngIf="!loading">
   <a routerLink="/" routerLinkActive="active" ngClass="titleStyle">
     <span>JUSTPLAY</span>
   </a>
-  <form>
+  <form (ngSubmit)="submitForm()">
     <input
       type="text"
       placeholder="Search..."
       name="search"
       [(ngModel)]="criteria"
+      (ngModelChange)="logChange()"
     />
   </form>
   <div *ngIf="!loading">

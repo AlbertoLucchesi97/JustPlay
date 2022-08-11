@@ -1,4 +1,9 @@
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpResponse,
+  HttpStatusCode,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PostVideogameData, VideogameData } from '../models/types';
 import { environment as env } from 'src/environments/environment';
@@ -11,38 +16,51 @@ export class VideogamesDataService {
 
   getVideogame(id: number) {
     let result = this.http.get<VideogameData>(
-      `${env.dev.serverUrl}/videogames/${id}`
+      `${env.dev.serverUrl}/videogames/${id}`,
+      { observe: 'response' }
     );
     return result;
   }
 
   getVideogames() {
-    return this.http.get<VideogameData[]>(`${env.dev.serverUrl}/videogames`);
+    return this.http.get<VideogameData[]>(`${env.dev.serverUrl}/videogames`, {
+      observe: 'response',
+    });
   }
 
   getVideogamesSorted(criteria: string) {
     return this.http.get<VideogameData[]>(
-      `${env.dev.serverUrl}/videogames?sort=${criteria}`
+      `${env.dev.serverUrl}/videogames?sort=${criteria}`,
+      { observe: 'response' }
     );
   }
 
   getSearchedVideogames(criteria: string) {
     return this.http.get<VideogameData[]>(
-      `${env.dev.serverUrl}/videogames?search=${criteria}`
+      `${env.dev.serverUrl}/videogames?search=${criteria}`,
+      { observe: 'response' }
     );
   }
 
   postVideogame(videogame: PostVideogameData) {
-    return this.http.post(`${env.dev.serverUrl}/videogames`, videogame, {
+    return this.http.post(`${env.dev.serverUrl}/videogames/add`, videogame, {
       observe: 'response',
     });
   }
 
   putVideogame(id: number, vgUpdated: PostVideogameData) {
-    this.http.put(`${env.dev.serverUrl}/videogames/${id}`, vgUpdated);
+    return this.http.put(
+      `${env.dev.serverUrl}/videogames/edit/${id}`,
+      vgUpdated,
+      {
+        observe: 'response',
+      }
+    );
   }
 
   deleteVideogame(id: number) {
-    this.http.delete(`${env.dev.serverUrl}/videogames/${id}`);
+    return this.http.delete(`${env.dev.serverUrl}/videogames/delete/${id}`, {
+      observe: 'response',
+    });
   }
 }

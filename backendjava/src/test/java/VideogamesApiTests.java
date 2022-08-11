@@ -94,7 +94,7 @@ public class VideogamesApiTests {
         videogame.setTrailer("trailer");
 
         this.mockMvc
-            .perform(postRequestFactory("/api/videogames", mapper, videogame))
+            .perform(postRequestFactory("/api/videogames/add", mapper, videogame))
             .andExpect(status().isCreated())
             .andDo(print())
             .andExpect(content().string(containsString("Title")));
@@ -113,7 +113,7 @@ public class VideogamesApiTests {
         videogame.setTrailer("trailerUpdated");
 
         this.mockMvc
-            .perform(putRequestFactory("/api/videogames/23", mapper, videogame))
+            .perform(putRequestFactory("/api/videogames/edit/23", mapper, videogame))
             .andExpect(status().isOk())
             .andDo(print())
             .andExpect(content().string(containsString("TitleUpdated")));
@@ -124,7 +124,7 @@ public class VideogamesApiTests {
         Videogame videogame = new Videogame();
         
         this.mockMvc
-        .perform(putRequestFactory("/api/videogames/300", mapper, videogame))
+        .perform(putRequestFactory("/api/videogames/edit/300", mapper, videogame))
         .andExpect(status().isNotFound());
     }
 
@@ -143,7 +143,7 @@ public class VideogamesApiTests {
     // }
 
     public static MockHttpServletRequestBuilder postRequestFactory(String url, ObjectMapper mapper, Videogame videogame) throws JsonProcessingException {
-        String adminAccessToken = "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkU5YnN4VHdJbHhIZ01BRW94QWpEXyJ9.eyJodHRwczovL2V4YW1wbGUuY29tL2VtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImh0dHBzOi8vanVzdHBsYXkuY29tL3JvbGVzIjpbImFkbWluIl0sImlzcyI6Imh0dHBzOi8vZGV2LXN0ZGlyNm54LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MjgzN2RmMjViYmZhYzAwNjcxNzFlZmUiLCJhdWQiOlsiaHR0cHM6Ly9qdXN0cGxheSIsImh0dHBzOi8vZGV2LXN0ZGlyNm54LnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2NTY2NzQ4NDIsImV4cCI6MTY1OTI2Njg0MiwiYXpwIjoiT21lM1pEVE9CRUNyV1RFQ2xSRWFmTDZoVzBneXlaYTgiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIiwicGVybWlzc2lvbnMiOlsiYWRkdG9vd25lZDp2aWRlb2dhbWVzIiwiYWRkdG93aXNobGlzdDp2aWRlb2dhbWVzIiwiY3JlYXRlOnZpZGVvZ2FtZXMiLCJkZWxldGU6dmlkZW9nYW1lcyIsInJlbW92ZWZyb21vd25lZDp2aWRlb2dhbWVzIiwicmVtb3ZlZnJvbXdpc2hsaXN0OnZpZGVvZ2FtZXMiLCJ1cGRhdGU6dmlkZW9nYW1lcyJdfQ.Ugxm4AAAsWfkFDs5AlmJCA3-S_YedqEFNJe9g8E33JhQMS9aC5kB89F0BeIjjQlBcy-GPhhw-eZg4S-Qi5SsyzGFSHY_e4GoCs0VLDFEzhZaMAyWuu3PqYZVvsXEjMAdDVM-H4Kjw11qcJQopE1zTF-Jln-zWnx2NxKGDycCXDWL1ukfkSEpfq4r1EoNZYoSfCJf1P9EiJ7IwMTTFhVlTla6yyYPYeU7tBCutbL-NZEfUUfABFS7-qs9o1_PO-BaMiq4beAjFyhIXpR_J0Eg6DOLs34Mx8Qj4lKwq-qHhNhx5nU18_sUU0SnfLV2t5L-WPpO1WBUHi7sJrM7Y3Xs0A";
+        String adminAccessToken = "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkU5YnN4VHdJbHhIZ01BRW94QWpEXyJ9.eyJodHRwczovL2V4YW1wbGUuY29tL2VtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImh0dHBzOi8vanVzdHBsYXkuY29tL3JvbGVzIjpbImFkbWluIl0sImlzcyI6Imh0dHBzOi8vZGV2LXN0ZGlyNm54LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MjgzN2RmMjViYmZhYzAwNjcxNzFlZmUiLCJhdWQiOlsiaHR0cHM6Ly9qdXN0cGxheSIsImh0dHBzOi8vZGV2LXN0ZGlyNm54LnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2NjAyMTYzMDgsImV4cCI6MTY2MjgwODMwOCwiYXpwIjoiT21lM1pEVE9CRUNyV1RFQ2xSRWFmTDZoVzBneXlaYTgiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIiwicGVybWlzc2lvbnMiOlsiYWRkdG9vd25lZDp2aWRlb2dhbWVzIiwiYWRkdG93aXNobGlzdDp2aWRlb2dhbWVzIiwiY3JlYXRlOnZpZGVvZ2FtZXMiLCJkZWxldGU6dmlkZW9nYW1lcyIsInJlbW92ZWZyb21vd25lZDp2aWRlb2dhbWVzIiwicmVtb3ZlZnJvbXdpc2hsaXN0OnZpZGVvZ2FtZXMiLCJ1cGRhdGU6dmlkZW9nYW1lcyJdfQ.fMl-62GVeFvOqI0CeGMGcKWCgxHW5isfYu8X7llmS3D9vs2WZgj0JPTYS0CGyvumABBmm0FIU62BW0r4xdghxeVKPnmTe5QBFcy3wwtPm2vK0Y5kxqpRtUxnGDO1C8j5En6EfxQWDEg_ynhLLIfqLk3F5iPR_LhPhjKEQeulfWTuwZj6XUzUshxLvI5ikF25oeKPArZ0xfnBLk8xhvkBwm3keAy7jOXmLCH2s5_ztqa0NnAU11yS-DM-HO1y892eEGd8d3NpnzThv98rPUKquQwjWYLWXVLj5aQCU0lYUIPD0wJSga85rTYa9l3qBbkeXUZ72-zcuQqPERJdtvXdJQ";
         
         return MockMvcRequestBuilders.post(url)
                 .header(HttpHeaders.AUTHORIZATION, adminAccessToken)
@@ -153,7 +153,7 @@ public class VideogamesApiTests {
     }
 
     public static MockHttpServletRequestBuilder putRequestFactory(String url, ObjectMapper mapper, Videogame videogame) throws JsonProcessingException {
-        String adminAccessToken = "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkU5YnN4VHdJbHhIZ01BRW94QWpEXyJ9.eyJodHRwczovL2V4YW1wbGUuY29tL2VtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImh0dHBzOi8vanVzdHBsYXkuY29tL3JvbGVzIjpbImFkbWluIl0sImlzcyI6Imh0dHBzOi8vZGV2LXN0ZGlyNm54LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MjgzN2RmMjViYmZhYzAwNjcxNzFlZmUiLCJhdWQiOlsiaHR0cHM6Ly9qdXN0cGxheSIsImh0dHBzOi8vZGV2LXN0ZGlyNm54LnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2NTY2NzQ4NDIsImV4cCI6MTY1OTI2Njg0MiwiYXpwIjoiT21lM1pEVE9CRUNyV1RFQ2xSRWFmTDZoVzBneXlaYTgiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIiwicGVybWlzc2lvbnMiOlsiYWRkdG9vd25lZDp2aWRlb2dhbWVzIiwiYWRkdG93aXNobGlzdDp2aWRlb2dhbWVzIiwiY3JlYXRlOnZpZGVvZ2FtZXMiLCJkZWxldGU6dmlkZW9nYW1lcyIsInJlbW92ZWZyb21vd25lZDp2aWRlb2dhbWVzIiwicmVtb3ZlZnJvbXdpc2hsaXN0OnZpZGVvZ2FtZXMiLCJ1cGRhdGU6dmlkZW9nYW1lcyJdfQ.Ugxm4AAAsWfkFDs5AlmJCA3-S_YedqEFNJe9g8E33JhQMS9aC5kB89F0BeIjjQlBcy-GPhhw-eZg4S-Qi5SsyzGFSHY_e4GoCs0VLDFEzhZaMAyWuu3PqYZVvsXEjMAdDVM-H4Kjw11qcJQopE1zTF-Jln-zWnx2NxKGDycCXDWL1ukfkSEpfq4r1EoNZYoSfCJf1P9EiJ7IwMTTFhVlTla6yyYPYeU7tBCutbL-NZEfUUfABFS7-qs9o1_PO-BaMiq4beAjFyhIXpR_J0Eg6DOLs34Mx8Qj4lKwq-qHhNhx5nU18_sUU0SnfLV2t5L-WPpO1WBUHi7sJrM7Y3Xs0A";
+        String adminAccessToken = "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkU5YnN4VHdJbHhIZ01BRW94QWpEXyJ9.eyJodHRwczovL2V4YW1wbGUuY29tL2VtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImh0dHBzOi8vanVzdHBsYXkuY29tL3JvbGVzIjpbImFkbWluIl0sImlzcyI6Imh0dHBzOi8vZGV2LXN0ZGlyNm54LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MjgzN2RmMjViYmZhYzAwNjcxNzFlZmUiLCJhdWQiOlsiaHR0cHM6Ly9qdXN0cGxheSIsImh0dHBzOi8vZGV2LXN0ZGlyNm54LnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2NjAyMTYzMDgsImV4cCI6MTY2MjgwODMwOCwiYXpwIjoiT21lM1pEVE9CRUNyV1RFQ2xSRWFmTDZoVzBneXlaYTgiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIiwicGVybWlzc2lvbnMiOlsiYWRkdG9vd25lZDp2aWRlb2dhbWVzIiwiYWRkdG93aXNobGlzdDp2aWRlb2dhbWVzIiwiY3JlYXRlOnZpZGVvZ2FtZXMiLCJkZWxldGU6dmlkZW9nYW1lcyIsInJlbW92ZWZyb21vd25lZDp2aWRlb2dhbWVzIiwicmVtb3ZlZnJvbXdpc2hsaXN0OnZpZGVvZ2FtZXMiLCJ1cGRhdGU6dmlkZW9nYW1lcyJdfQ.fMl-62GVeFvOqI0CeGMGcKWCgxHW5isfYu8X7llmS3D9vs2WZgj0JPTYS0CGyvumABBmm0FIU62BW0r4xdghxeVKPnmTe5QBFcy3wwtPm2vK0Y5kxqpRtUxnGDO1C8j5En6EfxQWDEg_ynhLLIfqLk3F5iPR_LhPhjKEQeulfWTuwZj6XUzUshxLvI5ikF25oeKPArZ0xfnBLk8xhvkBwm3keAy7jOXmLCH2s5_ztqa0NnAU11yS-DM-HO1y892eEGd8d3NpnzThv98rPUKquQwjWYLWXVLj5aQCU0lYUIPD0wJSga85rTYa9l3qBbkeXUZ72-zcuQqPERJdtvXdJQ";
         
         return MockMvcRequestBuilders.put(url)
                 .header(HttpHeaders.AUTHORIZATION, adminAccessToken)

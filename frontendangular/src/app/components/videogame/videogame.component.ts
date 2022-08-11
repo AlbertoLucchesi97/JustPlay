@@ -4,7 +4,7 @@ import { VideogameData } from 'src/app/models/types';
 @Component({
   selector: 'app-videogame',
   templateUrl: './videogame.component.html',
-  styleUrls: ['../../../styles.css'],
+  styleUrls: ['../../../styles.css', 'videogame.component.css'],
 })
 export class VideogameComponent implements OnInit {
   @Input() data!: VideogameData;

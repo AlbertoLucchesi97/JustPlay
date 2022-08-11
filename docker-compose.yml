@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   ms-sql-server:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: "P@ssw0rd2022"
@@ -26,16 +26,15 @@ services:
       - backend
   justplaybackend:
     build: ./backendjava
-    image: albertolucchesi/justplaybackend
+    image: albertolucchesi/backendjava
     environment:
       DBServer: "ms-sql-server"
     ports:
       - "8080:8080"
-      # 44317
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/api/videogames"]
       interval: 10s
-      timeout: 3s
+      timeout: 5s
       retries: 5
     depends_on:
       ms-sql-server:
@@ -43,11 +42,12 @@ services:
     networks:
       - backend
   justplayfrontend:
-    build: ./frontend
+    build: ./frontendangular
+    image: albertolucchesi/frontendangular
     volumes:
-      - ./frontend/config:/app/src/config
+      - ./frontendangular/config:/app/src/config
     ports:
-      - "3000:3000"
+      - "80:80"
     depends_on:
       - justplaybackend
     networks:

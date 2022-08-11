@@ -1,0 +1,5 @@
+.videogamesListStyle {
+  display: inline-block;
+  list-style-type: none;
+  padding: 5px;
+}

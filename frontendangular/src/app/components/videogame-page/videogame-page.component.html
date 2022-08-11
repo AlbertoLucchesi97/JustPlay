@@ -36,13 +36,13 @@
     <iframe
       ngClass="trailerStyle"
       title="trailerFrame"
-      src="{{ videogame.trailer }}"
+      [src]="getSanitizedUrl()"
     ></iframe>
   </div>
   <div ngClass="detailsPageButtons">
-    <div ngClass="authButtons" *ngIf="isAuthenticated == true">
+    <div ngClass="authButtons" *ngIf="(auth.isAuthenticated$ | async) === true">
       <button
-        *ngIf="isInWishlist(videogame)"
+        *ngIf="(isInWishlist() | async) === true"
         ngClass="invisibleButtonDetails"
         (click)="onRemoveVideogameFromWishlist()"
       >
@@ -50,9 +50,9 @@
           remove_shopping_cart
         </span>
       </button>
-    </div>
-    <div *ngIf="!isInWishlist(videogame)">
+
       <button
+        *ngIf="(isInWishlist() | async) === false"
         ngClass="invisibleButtonDetails"
         (click)="onAddVideogameToWishlist()"
       >
@@ -61,14 +61,14 @@
         </span>
       </button>
       <button
-        *ngIf="isInOwned(videogame)"
+        *ngIf="(isInOwned() | async) === true"
         ngClass="invisibleButtonDetails"
         (click)="onRemoveVideogameFromOwned()"
       >
         <span ngClass="material-icons" title="Remove from owned"> cancel </span>
       </button>
       <button
-        *ngIf="!isInOwned(videogame)"
+        *ngIf="(isInOwned() | async) === false"
         ngClass="invisibleButtonDetails"
         (click)="onAddVideogameToOwned()"
       >
@@ -77,6 +77,7 @@
         </span>
       </button>
     </div>
+
     <div *ngIf="user?.admin" ngClass="adminButtons">
       <a ngClass="linkStyle" [routerLink]="['/edit/', id]">
         <span ngClass="material-icons" title="Edit"> edit </span>

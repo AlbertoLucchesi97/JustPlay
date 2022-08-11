@@ -34,7 +34,7 @@ const routes: Routes = [
     component: EditVideogamePageComponent,
     canActivate: [AuthGuard],
   },
-  { path: '*', component: NotFoundPageComponent },
+  { path: '**', component: NotFoundPageComponent },
 ];
 
 @NgModule({

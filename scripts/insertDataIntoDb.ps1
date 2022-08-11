@@ -57,7 +57,7 @@ VALUES ('GTA V', '2013', 'Open World', 'Rockstar Games', 'Take Two', 'Live the l
 INSERT INTO JustPlay.dbo.videogames (title, year, genre, software_house, publisher, synopsis, cover, trailer)
 VALUES ('Mass Effect Legendary Edition', '2020', 'GDR', 'Bioware', 'EA', 'Play three masterpicies that created the famous series of Mass Effect', 'https://static-it.gamestop.it/images/products/302639/3max.jpg', 'https://www.youtube.com/embed/n8i53TtQ6IQ')
 
-INSERT INTO videogames (title, year, genre, software_house, publisher, synopsis, cover, trailer)
+INSERT INTO JustPlay.dbo.videogames (title, year, genre, software_house, publisher, synopsis, cover, trailer)
 VALUES ('Until Dawn', '2015', 'Horror', 'Supermassive Games', 'Sony Entertainment', 'It is winter, and a group of friends reunite in a chalet on the mountains...what will happen?', 'https://static-it.gamestop.it/images/products/260536/3max.jpg', 'https://www.youtube.com/embed/3NcF7EOnjow')
 
 INSERT INTO JustPlay.dbo.videogames (title, year, genre, software_house, publisher, synopsis, cover, trailer)

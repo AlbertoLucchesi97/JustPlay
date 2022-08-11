@@ -4,7 +4,7 @@ import { VideogameData } from 'src/app/models/types';
 @Component({
   selector: 'app-videogames-list',
   templateUrl: './videogames-list.component.html',
-  styleUrls: ['../../../styles.css'],
+  styleUrls: ['../../../styles.css', 'videogames-list.component.css'],
 })
 export class VideogamesListComponent implements OnInit {
   constructor() {}

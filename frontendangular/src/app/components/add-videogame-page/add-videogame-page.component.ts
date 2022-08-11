@@ -1,12 +1,9 @@
+import { HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import {
-  PostVideogameData,
-  VideogameData,
-  VideogamesState,
-} from 'src/app/models/types';
+import { PostVideogameData, VideogamesState } from 'src/app/models/types';
 import {
   submitting,
   successfullySubmitted,
@@ -47,26 +44,21 @@ export class AddVideogamePageComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  submitForm(formData: any) {
+  submitForm() {
     this.store.dispatch(submitting());
-    let response: any;
     this.videogameService
-      .postVideogame({
-        title: formData.title,
-        year: formData.year,
-        genre: formData.genre,
-        softwareHouse: formData.softwareHouse,
-        publisher: formData.publisher,
-        synopsis: formData.synopsis,
-        cover: formData.cover,
-        trailer: formData.trailer,
-      })
-      .subscribe((data) => (response = data.status));
-    if ((response = 201)) {
-      this.store.dispatch(successfullySubmitted());
-      this.router.navigate(['/']);
-    } else {
-      this.store.dispatch(submittingFailed());
-    }
+      .postVideogame(this.videogame)
+      .subscribe((response) => {
+        if (
+          response.status == HttpStatusCode.Created ||
+          response.status == HttpStatusCode.Ok
+        ) {
+          this.store.dispatch(successfullySubmitted());
+          this.router.navigate(['/']);
+        } else {
+          console.log('Error: impossible to submit data');
+          this.store.dispatch(submittingFailed());
+        }
+      });
   }
 }

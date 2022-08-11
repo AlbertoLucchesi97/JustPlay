@@ -12,7 +12,7 @@ INSERT INTO videogames_owned(user_email, videogame_id)
 VALUES ('test@test.com', '6')
 INSERT INTO videogames_owned(user_email, videogame_id)
 VALUES ('test@test.com', '7')
-s
+
 INSERT INTO videogames_wishlist(user_email, videogame_id)
 VALUES ('test@test.com', '10')
 INSERT INTO videogames_wishlist(user_email, videogame_id)

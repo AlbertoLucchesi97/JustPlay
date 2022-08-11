@@ -76,14 +76,14 @@ public class VideogamesRestController {
         }
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasAuthority('create:videogames')")
     public ResponseEntity<Videogame> PostVideogame(@RequestBody final Videogame videogame) {
         dataService.PostVideogame(videogame);
         return new ResponseEntity<Videogame>(videogame, HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "edit/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasAuthority('update:videogames')")
     public ResponseEntity<Videogame> PutVideogame(@PathVariable("id") final Long id,
                                                   @RequestBody Videogame videogame) {
@@ -108,7 +108,7 @@ public class VideogamesRestController {
         }
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("delete/{id}")
     @PreAuthorize("hasAuthority('delete:videogames')")
     public ResponseEntity<Videogame> DeleteVideogame(@PathVariable("id") final Long id) {
         

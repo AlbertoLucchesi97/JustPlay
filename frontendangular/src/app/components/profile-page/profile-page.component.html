@@ -1,1 +1,15 @@
-<p>profile-page works!</p>
+<div ngClass="pageStyle">
+  <div>
+    <h2 ngClass="privatePageTitle">
+      Welcome to your private page, {{ user?.email }}
+    </h2>
+  </div>
+  <div ngClass="similarGamesDiv">
+    <span ngClass="filterLabel">You have those videogames:</span>
+    <app-videogames-list [data]="videogamesOwned"></app-videogames-list>
+  </div>
+  <div ngClass="similarGamesDiv">
+    <span ngClass="filterLabel">Your wishlist:</span>
+    <app-videogames-list [data]="videogamesWishlist"></app-videogames-list>
+  </div>
+</div>
