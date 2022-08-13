@@ -25,7 +25,9 @@ services:
     networks:
       - backend
   justplaybackend:
-    build: ./backendjava
+    build:
+      context: ./
+      dockerfile: ./backendjava/Dockerfile
     image: albertolucchesi/backendjava
     environment:
       DBServer: "ms-sql-server"
@@ -42,7 +44,9 @@ services:
     networks:
       - backend
   justplayfrontend:
-    build: ./frontendangular
+    build:
+      context: ./
+      dockerfile: ./frontendangular/Dockerfile
     image: albertolucchesi/frontendangular
     volumes:
       - ./frontendangular/config:/app/src/config
