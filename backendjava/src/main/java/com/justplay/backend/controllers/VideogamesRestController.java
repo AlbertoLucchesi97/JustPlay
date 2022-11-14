@@ -91,7 +91,7 @@ public class VideogamesRestController {
         if (videogameToUpdate.isPresent()) {
             Videogame actualVideogameToUpdate = videogameToUpdate.get();
             actualVideogameToUpdate.setTitle(videogame.getTitle());
-            actualVideogameToUpdate.setYear(videogame.getYear());
+            actualVideogameToUpdate.setReleaseDate(videogame.getReleaseDate());
             actualVideogameToUpdate.setGenre(videogame.getGenre());
             actualVideogameToUpdate.setSoftwareHouse(videogame.getSoftwareHouse());
             actualVideogameToUpdate.setPublisher(videogame.getPublisher());

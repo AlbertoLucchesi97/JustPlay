@@ -74,10 +74,13 @@ export class VideogamePageComponent implements OnInit {
     );
 
     this.route.paramMap.subscribe((params) => (this.id = params.get('id')));
+
+    route.params.subscribe(val => {
+      this.getVideogameData();
+    });
   }
 
   ngOnInit(): void {
-    this.getVideogameData();
   }
 
   getVideogameData() {

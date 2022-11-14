@@ -27,19 +27,19 @@
       </span>
     </div>
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Year </label>
+      <label ngClass="fieldLabel"> Release Date </label>
       <input
         ngClass="fieldInput"
         required
-        #year="ngModel"
-        type="text"
-        name="year"
-        [(ngModel)]="videogameUpdated.year"
+        #releaseDate="ngModel"
+        type="date"
+        name="releaseDate"
+        [(ngModel)]="videogameUpdated.releaseDate"
       />
     </div>
-    <div *ngIf="year.dirty && year.invalid">
-      <span ngClass="fieldError" *ngIf="year.errors && year.errors['required']">
-        You must enter the year
+    <div *ngIf="releaseDate.dirty && releaseDate.invalid">
+      <span ngClass="fieldError" *ngIf="releaseDate.errors && releaseDate.errors['required']">
+        You must enter the release date
       </span>
     </div>
     <div ngClass="fieldContainer">

@@ -1,5 +1,7 @@
 package com.justplay.backend.models;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,8 +20,8 @@ public class Videogame {
     @Column(name="title")
     private String Title;
     
-    @Column(name="year")
-    private int Year;
+    @Column(name="release_date")
+    private Date ReleaseDate;
     
     @Column(name="genre")
     private String Genre;
@@ -54,11 +56,11 @@ public class Videogame {
         Title = title;
     }
 
-    public int getYear() {
-        return Year;
+    public Date getReleaseDate() {
+        return ReleaseDate;
     }
-    public void setYear(int year) {
-        Year = year;
+    public void setReleaseDate(Date releaseDate) {
+        ReleaseDate = releaseDate;
     }
 
     public String getGenre() {

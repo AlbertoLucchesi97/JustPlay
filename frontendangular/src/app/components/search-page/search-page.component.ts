@@ -1,11 +1,12 @@
 import { HttpStatusCode } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { VideogameData, VideogamesState } from 'src/app/models/types';
 import {
   searchedVideogames,
+  searchedVideogamesFail,
   searchingVideogames,
 } from 'src/app/ngrx/videogame.actions';
 import { VideogamesDataService } from 'src/app/services/videogame-data.service';
@@ -16,6 +17,7 @@ import { VideogamesDataService } from 'src/app/services/videogame-data.service';
   styleUrls: ['../../../styles.css'],
 })
 export class SearchPageComponent implements OnInit {
+  
   search!: string | null;
   videogames!: VideogameData[];
   videogamesState!: Observable<VideogamesState>;
@@ -31,10 +33,14 @@ export class SearchPageComponent implements OnInit {
     );
     this.route.queryParams.subscribe((params) => {
       this.search = params['criteria'];
+      this.searchVideogames();
     });
   }
 
   ngOnInit(): void {
+  }
+
+  searchVideogames() {
     this.store.dispatch(searchingVideogames());
     if (this.search != null) {
       this.videogamesService
@@ -45,8 +51,8 @@ export class SearchPageComponent implements OnInit {
               searchedVideogames({ videogames: response.body })
             );
           } else {
-            console.log('Error: impossible to search videogames');
-            return;
+            const emptyList : VideogameData[] = [];
+            this.store.dispatch(searchedVideogamesFail({videogames: emptyList}));
           }
         });
     }

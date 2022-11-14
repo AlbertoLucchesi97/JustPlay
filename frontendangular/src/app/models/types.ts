@@ -1,7 +1,7 @@
 export interface VideogameData {
   id: number;
   title: string;
-  year: number;
+  releaseDate: Date;
   genre: string;
   softwareHouse: string;
   publisher: string;
@@ -12,7 +12,7 @@ export interface VideogameData {
 
 export interface PostVideogameData {
   title: string;
-  year: number;
+  releaseDate: Date;
   genre: string;
   softwareHouse: string;
   publisher: string;
@@ -49,7 +49,7 @@ export type SigninAction = 'signin' | 'signin-callback';
 
 export type FormData = {
   title: string;
-  year: number;
+  releaseDate: Date;
   genre: string;
   softwareHouse: string;
   publisher: string;
@@ -81,6 +81,14 @@ export interface VideogamesState {
   readonly deleted: boolean;
   readonly sort: string;
   readonly similarGames: VideogameData[];
+  readonly newGames: VideogameData[];
+  readonly gdrGames: VideogameData[];
+  readonly fpsGames: VideogameData[];
+  readonly openworldGames: VideogameData[];
+  readonly racingGames: VideogameData[];
+  readonly adventureGames: VideogameData[];
+  readonly stealthGames: VideogameData[];
+  readonly horrorGames: VideogameData[];
 }
 
 export interface UserState {

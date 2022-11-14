@@ -1,4 +1,4 @@
 <div ngClass="pageStyle">
   <p ngClass="searchPStyle">for {{ search }}</p>
-  <app-videogames-list [data]="videogames"></app-videogames-list>
+  <app-videogames-list [data]="videogames" (ngModelChange)="searchVideogames()"></app-videogames-list>
 </div>

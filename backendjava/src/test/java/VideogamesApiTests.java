@@ -14,6 +14,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.Date;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.justplay.backend.BackendJavaApplication;
@@ -85,7 +87,7 @@ public class VideogamesApiTests {
     public void PostVideogame_ShouldReturnStatusCreated() throws JsonProcessingException, Exception {
         Videogame videogame = new Videogame();
         videogame.setTitle("Title");
-        videogame.setYear(2022);
+        videogame.setReleaseDate(new Date(2022-01-01));
         videogame.setGenre("adventure");
         videogame.setSoftwareHouse("softwareHouse");
         videogame.setPublisher("publisher");
@@ -104,7 +106,7 @@ public class VideogamesApiTests {
     public void PutVideogame_ShouldReturnVideogameAndStatusOk() throws JsonProcessingException, Exception {
         Videogame videogame = new Videogame();
         videogame.setTitle("TitleUpdated");
-        videogame.setYear(2022);
+        videogame.setReleaseDate(new Date(2022-01-01));
         videogame.setGenre("adventureUpdated");
         videogame.setSoftwareHouse("softwareHouseUpdated");
         videogame.setPublisher("publisherUpdated");

@@ -28,7 +28,7 @@ export class AddVideogamePageComponent implements OnInit {
   ) {
     this.videogame = {
       title: '',
-      year: 0,
+      releaseDate: new Date(),
       genre: '',
       softwareHouse: '',
       publisher: '',

@@ -14,7 +14,7 @@ CREATE TABLE videogames (
 	synopsis VARCHAR(255) NULL,
 	title VARCHAR(255) NULL,
 	trailer VARCHAR(255) NULL,
-	year INT NULL
+	release_date DATE NULL
 );
 
 CREATE TABLE videogames_owned (

@@ -8,8 +8,8 @@
       <span ngClass="spanDetailsStyle">{{ videogame.title }}</span>
     </div>
     <div>
-      <div ngClass="labelDetailsStyle">Year</div>
-      <span ngClass="spanDetailsStyle">{{ videogame.year }}</span>
+      <div ngClass="labelDetailsStyle">Release Date</div>
+      <span ngClass="spanDetailsStyle">{{ videogame.releaseDate | date: 'mediumDate' }}</span>
     </div>
     <div>
       <div ngClass="labelDetailsStyle">Genre</div>

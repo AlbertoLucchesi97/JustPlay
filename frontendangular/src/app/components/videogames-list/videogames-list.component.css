@@ -3,3 +3,9 @@
   list-style-type: none;
   padding: 5px;
 }
+
+.videogamesListScroll {
+  overflow: auto;
+  white-space: nowrap;
+  
+}

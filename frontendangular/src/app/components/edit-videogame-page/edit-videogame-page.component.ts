@@ -48,7 +48,7 @@ export class EditVideogamePageComponent implements OnInit {
         this.store.dispatch(gotVideogame({ videogame: response.body })),
           (this.videogameUpdated = {
             title: response.body.title,
-            year: response.body.year,
+            releaseDate: response.body.releaseDate,
             genre: response.body.genre,
             softwareHouse: response.body.softwareHouse,
             publisher: response.body.publisher,

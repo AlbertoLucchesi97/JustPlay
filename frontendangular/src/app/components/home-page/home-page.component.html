@@ -14,7 +14,7 @@
       </div>
     </ng-container>
   </div>
-  <div ngClass="filterDiv">
+  <!-- <div ngClass="filterDiv">
     <span ngClass="material-icons" title="Sort By"> list </span>
     <select
       ngClass="filterSelect"
@@ -25,7 +25,14 @@
         {{ option.value }}
       </option>
     </select>
+  </div> -->
+  <div>
+    <p ngClass="filterLabel"> New </p>
+    <app-videogames-list [data]="newGames"></app-videogames-list>
   </div>
-  <app-videogames-list [data]="videogames"></app-videogames-list>
+  <div *ngFor="let genre of gamesForGenres | keyvalue">
+    <p ngClass="filterLabel"> {{ genre.key }} </p>
+    <app-videogames-list [data]="genre.value"></app-videogames-list>
+  </div>
   <!-- </ng-container> -->
 </div>

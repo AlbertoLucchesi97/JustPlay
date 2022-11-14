@@ -7,6 +7,7 @@ import {
   gotVideogame,
   searchingVideogames,
   searchedVideogames,
+  searchedVideogamesFail,
   addingVideogame,
   addedVideogame,
   submitting,
@@ -17,6 +18,14 @@ import {
   changingSort,
   gettingSimilarGames,
   gotSimilarGames,
+  settingNewGames,
+  settingAdventureGames,
+  settingFpsGames,
+  settingGdrGames,
+  settingHorrorGames,
+  settingOpenWorldGames,
+  settingRacingGames,
+  settingStealthGames
 } from './videogame.actions';
 
 export const initialVideogameState: VideogamesState = {
@@ -30,6 +39,14 @@ export const initialVideogameState: VideogamesState = {
   deleted: false,
   sort: '',
   similarGames: [],
+  newGames: [],
+  gdrGames: [],
+  fpsGames: [],
+  openworldGames: [],
+  racingGames: [],
+  adventureGames: [],
+  stealthGames: [],
+  horrorGames: []
 };
 
 export const videogamesReducer = createReducer(
@@ -60,6 +77,12 @@ export const videogamesReducer = createReducer(
     loading: true,
   })),
   on(searchedVideogames, (state, { videogames }) => ({
+    ...state,
+    searched: videogames,
+    loading: false,
+  })),
+  
+  on(searchedVideogamesFail, (state, {videogames}) => ({
     ...state,
     searched: videogames,
     loading: false,
@@ -111,5 +134,37 @@ export const videogamesReducer = createReducer(
     ...state,
     loading: false,
     similarGames: similarGames,
-  }))
+  })),
+  on(settingNewGames, (state, { newGames }) => ({
+    ...state,
+    newGames: newGames,
+  })),
+  on(settingAdventureGames, (state, {adventureGames}) => ({
+    ...state,
+    adventureGames: adventureGames
+  })),
+  on(settingFpsGames, (state, { fpsGames }) => ({
+    ...state,
+    fpsGames: fpsGames,
+  })),
+  on(settingGdrGames, (state, { gdrGames }) => ({
+    ...state,
+    gdrGames: gdrGames,
+  })),
+  on(settingHorrorGames, (state, { horrorGames }) => ({
+    ...state,
+    horrorGames: horrorGames,
+  })),
+  on(settingOpenWorldGames, (state, { openWorldGames }) => ({
+    ...state,
+    openworldGames: openWorldGames,
+  })),
+  on(settingRacingGames, (state, { racingGames }) => ({
+    ...state,
+    racingGames: racingGames,
+  })),
+  on(settingStealthGames, (state, { stealthGames }) => ({
+    ...state,
+    stealthGames: stealthGames,
+  })),
 );
