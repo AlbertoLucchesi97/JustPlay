@@ -4,7 +4,7 @@ import { VideogameData } from 'src/app/models/types';
 @Component({
   selector: 'app-videogame',
   templateUrl: './videogame.component.html',
-  styleUrls: ['../../../styles.css', 'videogame.component.css'],
+  styleUrls: ['../../../styles.css'],
 })
 export class VideogameComponent implements OnInit {
   @Input() data!: VideogameData;
@@ -13,11 +13,4 @@ export class VideogameComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  handleMouseOver() {
-    this.isHovering = true;
-  }
-  handleMouseOut() {
-    this.isHovering = false;
-  }
 }

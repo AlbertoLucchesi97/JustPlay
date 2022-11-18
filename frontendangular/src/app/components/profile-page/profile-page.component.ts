@@ -5,7 +5,7 @@ import { UserData, UserState, VideogameData } from 'src/app/models/types';
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
-  styleUrls: ['../../../styles.css', 'profile-page.component.css'],
+  styleUrls: ['../../../styles.css'],
 })
 export class ProfilePageComponent implements OnInit {
   user!: UserData | null;

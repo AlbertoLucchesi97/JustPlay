@@ -26,6 +26,7 @@ import { VideogamesDataService } from './services/videogame-data.service';
 import { FormsModule } from '@angular/forms';
 import { AppRoutesModule } from './app-routes.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { IvyCarouselModule } from 'angular-responsive-carousel2';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    IvyCarouselModule,
     AuthModule.forRoot({
       ...env.auth,
       httpInterceptor: {

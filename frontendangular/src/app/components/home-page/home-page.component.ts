@@ -36,7 +36,7 @@ import { VideogamesDataService } from 'src/app/services/videogame-data.service';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['../../../styles.css', 'home-page.component.css'],
+  styleUrls: ['../../../styles.css'],
 })
 export class HomePageComponent implements OnInit {
   videogamesLoading!: boolean;

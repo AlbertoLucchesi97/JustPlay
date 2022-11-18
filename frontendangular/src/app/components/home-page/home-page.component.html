@@ -3,34 +3,18 @@
     <div>Loading...</div>
   </ng-container>
   <!-- <ng-container *ngIf="!videogamesLoading === false"> -->
-  <div ngClass="newVideogame">
-    <ng-container *ngIf="user && user.admin">
-      <div ngClass="homePageDivStyle">
-        <a routerLink="videogames/add" routerLinkActive="active">
-          <span ngClass="material-icons" title="Add Videogame">
-            add_circle_outline
-          </span>
-        </a>
-      </div>
-    </ng-container>
-  </div>
-  <!-- <div ngClass="filterDiv">
-    <span ngClass="material-icons" title="Sort By"> list </span>
-    <select
-      ngClass="filterSelect"
-      [(ngModel)]="sort"
-      (ngModelChange)="changeSort()"
-    >
-      <option *ngFor="let option of options" [ngValue]="option.value">
-        {{ option.value }}
-      </option>
-    </select>
-  </div> -->
-  <div>
+  <ng-container *ngIf="user && user.admin" ngClass="col-12">
+    <a routerLink="videogames/add" routerLinkActive="active" ngClass="newVideogame">
+      <span ngClass="material-icons" title="Add Videogame">
+        add_circle_outline
+      </span>
+    </a>
+  </ng-container>
+  <div ngClass="col-12">
     <p ngClass="filterLabel"> New </p>
     <app-videogames-list [data]="newGames"></app-videogames-list>
   </div>
-  <div *ngFor="let genre of gamesForGenres | keyvalue">
+  <div *ngFor="let genre of gamesForGenres | keyvalue" ngClass="col-12">
     <p ngClass="filterLabel"> {{ genre.key }} </p>
     <app-videogames-list [data]="genre.value"></app-videogames-list>
   </div>

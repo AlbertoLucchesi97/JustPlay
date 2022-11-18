@@ -1,8 +1,11 @@
 <div ngClass="pageStyle">
   <form (ngSubmit)="submitForm()">
-    <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Title </label>
-      <input
+    <div ngClass="fieldContainer col-12">
+      <div ngClass="col-12">
+        <label ngClass="fieldLabel"> Title </label>
+      </div>
+      <div ngClass="col-12">
+        <input
         ngClass="fieldInput"
         required
         minlength="1"
@@ -11,6 +14,7 @@
         name="title"
         [(ngModel)]="videogame.title"
       />
+      </div>
     </div>
     <div *ngIf="title.dirty && title.invalid">
       <span
@@ -26,32 +30,42 @@
         The title must be at least 1 character long
       </span>
     </div>
+
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Release Date </label>
-      <input
-        ngClass="fieldInput"
-        required
-        #releaseDate="ngModel"
-        type="date"
-        name="releaseDate"
-        [(ngModel)]="videogame.releaseDate"
-      />
+      <div ngClass="col-12">
+        <label ngClass="fieldLabel"> Release Date </label>
+      </div>
+      <div ngClass="col-12">
+        <input
+          ngClass="fieldInput"
+          required
+          #releaseDate="ngModel"
+          type="date"
+          name="releaseDate"
+          [(ngModel)]="videogame.releaseDate"
+        />
+      </div>
     </div>
     <div *ngIf="releaseDate.dirty && releaseDate.invalid">
       <span ngClass="fieldError" *ngIf="releaseDate.errors && releaseDate.errors['required']">
         You must enter the release date
       </span>
     </div>
+
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Genre </label>
-      <input
-        ngClass="fieldInput"
-        required
-        #genre="ngModel"
-        type="text"
-        name="genre"
-        [(ngModel)]="videogame.genre"
-      />
+      <div ngClass="col-12">
+        <label ngClass="fieldLabel"> Genre </label>
+      </div>
+      <div ngClass="col-12">
+        <input
+          ngClass="fieldInput"
+          required
+          #genre="ngModel"
+          type="text"
+          name="genre"
+          [(ngModel)]="videogame.genre"
+        />
+      </div>
     </div>
     <div *ngIf="genre.dirty && genre.invalid">
       <span
@@ -61,17 +75,22 @@
         You must enter the genre
       </span>
     </div>
+
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Software House </label>
-      <input
-        ngClass="fieldInput"
-        required
-        minlength="1"
-        #softwareHouse="ngModel"
-        type="text"
-        name="softwareHouse"
-        [(ngModel)]="videogame.softwareHouse"
-      />
+      <div ngClass="col-12"> 
+        <label ngClass="fieldLabel"> Software House </label>
+      </div>
+      <div ngClass="col-12">
+        <input
+          ngClass="fieldInput"
+          required
+          minlength="1"
+          #softwareHouse="ngModel"
+          type="text"
+          name="softwareHouse"
+          [(ngModel)]="videogame.softwareHouse"
+        />
+      </div>
     </div>
     <div *ngIf="softwareHouse.dirty && softwareHouse.invalid">
       <span
@@ -87,17 +106,22 @@
         The Software House must be at least 1 character long
       </span>
     </div>
+
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Publisher </label>
-      <input
-        ngClass="fieldInput"
-        required
-        minlength="1"
-        #publisher="ngModel"
-        type="text"
-        name="publisher"
-        [(ngModel)]="videogame.publisher"
-      />
+      <div ngClass="col-12">
+        <label ngClass="fieldLabel"> Publisher </label>
+      </div>
+      <div ngClass="col-12">
+        <input
+          ngClass="fieldInput"
+          required
+          minlength="1"
+          #publisher="ngModel"
+          type="text"
+          name="publisher"
+          [(ngModel)]="videogame.publisher"
+        />
+      </div>
     </div>
     <div *ngIf="publisher.dirty && publisher.invalid">
       <span
@@ -113,17 +137,22 @@
         The publisher must be at least 1 character long
       </span>
     </div>
+
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Synopsis </label>
-      <input
-        ngClass="fieldInput"
-        required
-        minlength="20"
-        #synopsis="ngModel"
-        type="text"
-        name="synopsis"
-        [(ngModel)]="videogame.synopsis"
-      />
+      <div ngClass="col-12">
+        <label ngClass="fieldLabel"> Synopsis </label>
+      </div>
+      <div ngClass="col-12">
+        <input
+          ngClass="fieldInput"
+          required
+          minlength="20"
+          #synopsis="ngModel"
+          type="text"
+          name="synopsis"
+          [(ngModel)]="videogame.synopsis"
+        />
+      </div>
     </div>
     <div *ngIf="synopsis.dirty && synopsis.invalid">
       <span
@@ -139,16 +168,21 @@
         Th synopsis must be at least 20 characters long
       </span>
     </div>
+
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Cover </label>
-      <input
-        ngClass="fieldInput"
-        required
-        #cover="ngModel"
-        type="text"
-        name="cover"
-        [(ngModel)]="videogame.cover"
-      />
+      <div ngClass="col-12">
+        <label ngClass="fieldLabel"> Cover </label>
+      </div>
+      <div ngClass="col-12">
+        <input
+          ngClass="fieldInput"
+          required
+          #cover="ngModel"
+          type="text"
+          name="cover"
+          [(ngModel)]="videogame.cover"
+        />
+      </div>
     </div>
     <div *ngIf="cover.dirty && cover.invalid">
       <span
@@ -158,16 +192,21 @@
         You must enter the Cover
       </span>
     </div>
+
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Trailer </label>
-      <input
-        ngClass="fieldInput"
-        required
-        #trailer="ngModel"
-        type="text"
-        name="trailer"
-        [(ngModel)]="videogame.trailer"
-      />
+      <div ngClass="col-12">
+        <label ngClass="fieldLabel"> Trailer </label>
+      </div>
+      <div ngClass="col-12">
+        <input
+          ngClass="fieldInput"
+          required
+          #trailer="ngModel"
+          type="text"
+          name="trailer"
+          [(ngModel)]="videogame.trailer"
+        />
+      </div>
     </div>
     <div *ngIf="trailer.dirty && trailer.invalid">
       <span
@@ -177,7 +216,7 @@
         You must enter the Trailer
       </span>
     </div>
-    <div ngClass="fieldButton">
+    <div ngClass="fieldButton col-12">
       <button ngClass="invisibleButtonEdit" type="submit">
         <span ngClass="material-icons" title="Save"> save </span>
       </button>

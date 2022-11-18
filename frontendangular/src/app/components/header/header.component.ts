@@ -8,7 +8,7 @@ import { VideogamesState } from 'src/app/models/types';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['../../../styles.css', 'header.component.css'],
+  styleUrls: ['../../../styles.css'],
 })
 export class HeaderComponent implements OnInit {
   criteria?: string;

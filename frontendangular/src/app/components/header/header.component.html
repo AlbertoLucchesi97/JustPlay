@@ -1,8 +1,8 @@
-<div ngClass="headerStyle" *ngIf="!loading">
-  <a routerLink="/" routerLinkActive="active" ngClass="titleStyle">
+<div ngClass="headerStyle col-12" *ngIf="!loading">
+  <a routerLink="/" routerLinkActive="active" ngClass="titleStyle col-4">
     <span>JUSTPLAY</span>
   </a>
-  <form (ngSubmit)="submitForm()">
+  <form (ngSubmit)="submitForm()" ngClass="headerSearchInput col-4">
     <input
       type="text"
       placeholder="Search..."
@@ -11,7 +11,7 @@
       (ngModelChange)="logChange()"
     />
   </form>
-  <div *ngIf="!loading">
+  <div *ngIf="!loading" ngClass="headerUserButtons col-4">
     <app-auth-logout-button
       *ngIf="(auth.isAuthenticated$ | async) === true"
     ></app-auth-logout-button>

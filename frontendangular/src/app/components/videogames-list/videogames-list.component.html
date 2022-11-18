@@ -1,5 +1,7 @@
-<ul ngClass="videogamesListScroll">
-  <li *ngFor="let videogame of data" ngClass="videogamesListStyle">
-    <app-videogame [data]="videogame"></app-videogame>
-  </li>
-</ul>
+<div ngClass="container">
+    <carousel style="height: 260px">
+      <div *ngFor="let videogame of data" ngClass="videogamesListStyle carousel-cell">
+        <app-videogame [data]="videogame"></app-videogame>
+      </div>
+    </carousel>
+</div>

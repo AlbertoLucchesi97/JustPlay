@@ -1,8 +1,5 @@
 <a ngClass="videogameLinkStyle" [routerLink]="['/videogames/', data.id]">
-  <div (mouseover)="handleMouseOver()" (mouseout)="handleMouseOut()">
-    <img ngClass="coverStyle" src="{{ data.cover }}" alt="{{ data.title }}" />
-    <div *ngIf="isHovering == true" ngClass="hoverVideogameStyle">
-      {{ data.title }}
-    </div>
+  <div>
+    <img ngClass="coverStyle" src="{{ data.cover }}" alt="{{ data.title }}" title="{{ data.title }}" />
   </div>
 </a>
