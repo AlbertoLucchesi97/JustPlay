@@ -7,7 +7,7 @@ Da anonimi è possibile solo fare la ricerca e consultare le schede, mentre l'ut
 Inoltre, se l'utente ha fatto il login e dispone dei permessi, è possibile aggiungere videogiochi, modificarli e cancellarli.
 ## Tecnologie
 - Typescript
-- Angular 2
+- Angular
 - Java 8
 - SQL Server
 ## Setup
