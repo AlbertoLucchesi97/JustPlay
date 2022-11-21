@@ -1,0 +1,16 @@
+com\justplay\backend\controllers\UsersRestController.class
+com\justplay\backend\services\DataService.class
+com\justplay\backend\controllers\VideogamesRestController.class
+com\justplay\backend\repositories\VideogamesWishlistJpaRepository.class
+com\justplay\backend\config\Config.class
+com\justplay\backend\repositories\VideogamesJpaRepository.class
+com\justplay\backend\security\SecurityConfig.class
+com\justplay\backend\BackendJavaApplication.class
+com\justplay\backend\models\VideogameWishlist.class
+com\justplay\backend\repositories\VideogamesOwnedJpaRepository.class
+com\justplay\backend\config\Config$1.class
+com\justplay\backend\security\AudienceValidator.class
+com\justplay\backend\models\User.class
+com\justplay\backend\models\Videogame.class
+com\justplay\backend\repositories\UsersJpaRepository.class
+com\justplay\backend\models\VideogameOwned.class
