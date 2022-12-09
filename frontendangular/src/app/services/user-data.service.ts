@@ -7,6 +7,7 @@ import { environment as env } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class UserDataService {
+  
   constructor(private http: HttpClient) {}
 
   getUser() {

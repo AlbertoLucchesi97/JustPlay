@@ -56,7 +56,6 @@ export class AddVideogamePageComponent implements OnInit {
           this.store.dispatch(successfullySubmitted());
           this.router.navigate(['/']);
         } else {
-          console.log('Error: impossible to submit data');
           this.store.dispatch(submittingFailed());
         }
       });

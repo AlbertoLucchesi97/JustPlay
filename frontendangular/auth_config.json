@@ -3,5 +3,5 @@
   "clientId": "Ome3ZDTOBECrWTEClREafL6hW0gyyZa8",
   "scope": "openid profile JustPlayAPI email",
   "audience": "https://justplay",
-  "serverUrl": "http://justplaybackend:8080/api"
+  "serverUrl": "http://localhost:8080/api"
 }
