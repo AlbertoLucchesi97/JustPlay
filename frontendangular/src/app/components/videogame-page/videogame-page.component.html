@@ -2,32 +2,33 @@
   <div ngClass="row">
     <div ngClass="col-6">
       <div ngClass="divCoverStyle">
-        <img ngClass="detailsCoverStyle" src="{{ videogame.cover }}" alt="cover" />
+        <img id="cover" ngClass="detailsCoverStyle" src="{{ videogame.cover }}" alt="cover" />
       </div>
       <div ngClass="divDetailsStyle">
         <div>
           <div ngClass="labelDetailsStyle">Title</div>
-          <span ngClass="spanDetailsStyle">{{ videogame.title }}</span>
+          <span id="title" ngClass="spanDetailsStyle">{{ videogame.title }}</span>
         </div>
         <div>
           <div ngClass="labelDetailsStyle">Release Date</div>
-          <span ngClass="spanDetailsStyle">{{ videogame.releaseDate | date: 'mediumDate' }}</span>
+          <span id="release_date" ngClass="spanDetailsStyle">{{ videogame.releaseDate | date: 'mediumDate' }}</span>
         </div>
         <div>
           <div ngClass="labelDetailsStyle">Genre</div>
-          <span ngClass="spanDetailsStyle">{{ videogame.genre }}</span>
+          <span id="genre" ngClass="spanDetailsStyle">{{ videogame.genre }}</span>
         </div>
         <div>
           <div ngClass="labelDetailsStyle">Software House</div>
-          <span ngClass="spanDetailsStyle">{{ videogame.softwareHouse }}</span>
+          <span id="software_house" ngClass="spanDetailsStyle">{{ videogame.softwareHouse }}</span>
         </div>
         <div>
           <div ngClass="labelDetailsStyle">Publisher</div>
-          <span ngClass="spanDetailsStyle">{{ videogame.publisher }}</span>
+          <span id="publisher" ngClass="spanDetailsStyle">{{ videogame.publisher }}</span>
         </div>
         <div ngClass="labelDetailsStyle">Synopsis</div>
         <div>
           <textarea
+            id="synopsis"
             disabled="true"
             ngClass="textareaDetailsStyle"
             [ngModel]="videogame.synopsis">
@@ -86,6 +87,7 @@
     <div ngClass="col-6">
       <div ngClass="trailerDiv">
         <iframe
+          id="trailer"
           ngClass="trailerStyle"
           title="trailerFrame"
           [src]="getSanitizedUrl()"

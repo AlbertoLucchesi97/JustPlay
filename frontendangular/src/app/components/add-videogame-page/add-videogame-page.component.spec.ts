@@ -8,7 +8,7 @@ import { VideogamesDataService } from 'src/app/services/videogame-data.service';
 import { AppRoutesModule } from 'src/app/app-routes.module';
 
 
-describe('AddVideogamePageComponent', () => {
+describe('AddVideogamePageComponent Unit Tests', () => {
   let videogame: PostVideogameData;
   let mockStore: MockStore<{videogames: VideogamesState}>;
   let videogamesService: any;
@@ -74,3 +74,64 @@ describe('AddVideogamePageComponent', () => {
     })
   });
 });
+
+describe('AddVideogamePage Integration Tests with VideogameService', () => {
+  let videogame: PostVideogameData;
+  let mockStore: MockStore<{videogames: VideogamesState}>;
+  let videogamesService: VideogamesDataService;
+  let mockRouter: any;
+  let component: AddVideogamePageComponent;
+
+  beforeEach(() => {
+
+    const initialState = {
+      loading: false,
+      videogames: [],
+      viewing: null,
+      searched: [],
+      added: null,
+      submitting: false,
+      submitted: false,
+      deleted: false,
+      sort: "",
+      similarGames: [],
+      newGames: [],
+      gdrGames: [],
+      fpsGames: [],
+      openworldGames: [],
+      racingGames: [],
+      adventureGames: [],
+      stealthGames: [],
+      horrorGames: []
+    }
+    
+    videogame = {
+      title: 'Test',
+      releaseDate: new Date(),
+      genre: 'Test',
+      softwareHouse: 'Test',
+      publisher: 'Test',
+      synopsis: 'Test',
+      cover: 'Test',
+      trailer: 'Test',
+    };
+
+    TestBed.configureTestingModule({
+      declarations: [AddVideogamePageComponent],
+      providers: [ VideogamesDataService, 
+        provideMockStore({initialState}) ],
+      imports: [AppRoutesModule, HttpClientModule]
+    })
+
+    mockStore = TestBed.inject(MockStore);
+    videogamesService = TestBed.inject(VideogamesDataService);
+    mockRouter = jasmine.createSpyObj('router', ['navigate']);
+  
+    component = new AddVideogamePageComponent(
+      mockStore, videogamesService, mockRouter);
+  });
+
+  describe('submitForm', () => {
+
+  })
+})

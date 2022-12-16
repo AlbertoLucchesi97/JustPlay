@@ -1,7 +1,7 @@
 <div ngClass="pageStyle" *ngIf="videogameUpdated != null">
   <form (ngSubmit)="submitForm()">
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Title </label>
+      <label name="title" ngClass="fieldLabel"> Title </label>
       <input
         ngClass="fieldInput"
         required
@@ -27,7 +27,7 @@
       </span>
     </div>
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Release Date </label>
+      <label name="releaseDate" ngClass="fieldLabel"> Release Date </label>
       <input
         ngClass="fieldInput"
         required
@@ -43,7 +43,7 @@
       </span>
     </div>
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Genre </label>
+      <label name="genre" ngClass="fieldLabel"> Genre </label>
       <input
         ngClass="fieldInput"
         required
@@ -62,7 +62,7 @@
       </span>
     </div>
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Software House </label>
+      <label name="softwareHouse" ngClass="fieldLabel"> Software House </label>
       <input
         ngClass="fieldInput"
         required
@@ -88,7 +88,7 @@
       </span>
     </div>
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Publisher </label>
+      <label name="publisher" ngClass="fieldLabel"> Publisher </label>
       <input
         ngClass="fieldInput"
         required
@@ -114,7 +114,7 @@
       </span>
     </div>
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Synopsis </label>
+      <label name="synopsis" ngClass="fieldLabel"> Synopsis </label>
       <input
         ngClass="fieldInput"
         required
@@ -140,7 +140,7 @@
       </span>
     </div>
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Cover </label>
+      <label name="cover" ngClass="fieldLabel"> Cover </label>
       <input
         ngClass="fieldInput"
         required
@@ -159,7 +159,7 @@
       </span>
     </div>
     <div ngClass="fieldContainer">
-      <label ngClass="fieldLabel"> Trailer </label>
+      <label name="trailer" ngClass="fieldLabel"> Trailer </label>
       <input
         ngClass="fieldInput"
         required
@@ -178,7 +178,7 @@
       </span>
     </div>
     <div ngClass="fieldButton">
-      <button ngClass="invisibleButtonEdit" type="submit">
+      <button ngClass="invisibleButtonEdit" type="submit" [disabled]="checkErrors()">
         <span ngClass="material-icons" title="Save"> save </span>
       </button>
       <span *ngIf="isSubmitting == true">Submitting...</span>

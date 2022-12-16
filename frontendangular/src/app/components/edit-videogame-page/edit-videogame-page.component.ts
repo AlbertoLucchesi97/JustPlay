@@ -83,4 +83,24 @@ export class EditVideogamePageComponent implements OnInit {
         });
     }
   }
+
+  checkErrors(): boolean {
+    if (this.videogameUpdated != null) {
+      if (this.videogameUpdated.title == "" ||
+        this.videogameUpdated.genre == "" ||
+        this.videogameUpdated.softwareHouse == "" ||
+        this.videogameUpdated.publisher == "" ||
+        this.videogameUpdated.synopsis == "" ||
+        this.videogameUpdated.synopsis.length < 20 ||
+        this.videogameUpdated.cover == "" ||
+        this.videogameUpdated.trailer == "") 
+      {
+        return true;
+      } else {
+        return false;
+      };
+    } else {
+      return false;
+    }
+  }
 }

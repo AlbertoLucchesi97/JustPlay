@@ -60,4 +60,19 @@ export class AddVideogamePageComponent implements OnInit {
         }
       });
   }
+
+  checkErrors(): boolean {
+    if (this.videogame.title == "" ||
+        this.videogame.genre == "" ||
+        this.videogame.softwareHouse == "" ||
+        this.videogame.publisher == "" ||
+        this.videogame.synopsis == "" ||
+        this.videogame.synopsis.length < 20 ||
+        this.videogame.cover == "" ||
+        this.videogame.trailer == "") {
+          return true;
+        } else {
+          return false;
+        };
+  }
 }
