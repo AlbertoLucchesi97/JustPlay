@@ -45,6 +45,7 @@ public class VideogamesRestController {
                         videogames = null;
                     } else {
                         videogames = dataService.GetAllVideogames(null, sort);
+                        videogames = null;
                     }
                 } else {
                     if (sort == null || sort.isEmpty()) {
