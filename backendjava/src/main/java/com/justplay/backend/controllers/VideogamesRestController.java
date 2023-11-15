@@ -42,9 +42,11 @@ public class VideogamesRestController {
                 if (search == null || search.isEmpty()) {
                     if (sort == null || sort.isEmpty()) {
                         videogames = dataService.GetAllVideogames(null, null);
+                        videogames = dataService.GetAllVideogames(null, null);
                         videogames = null;
                     } else {
                         videogames = dataService.GetAllVideogames(null, sort);
+                        videogames = dataService.GetAllVideogames(null, null);
                     }
                 } else {
                     if (sort == null || sort.isEmpty()) {
